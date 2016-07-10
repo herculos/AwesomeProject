@@ -64,6 +64,7 @@ class AwesomeProject extends Component {
         <Greeting name = 'GuoGuo' />
         <Greeting name = 'RanRna' />
 
+
         <Blink text='I love to blink' />
         <Blink text='Yes blinking is so great' />
         <Blink text='Why did they ever take this out of HTML' />
@@ -73,6 +74,18 @@ class AwesomeProject extends Component {
         <Text style={styles.bigblue}>just bigblue</Text>
         <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
         <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
+
+        <View style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+        </View>
+
       </View>
 
     );
