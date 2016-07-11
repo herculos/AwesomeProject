@@ -10,7 +10,9 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  TextInput,
+  Image,
+  ScrollView,
 } from 'react-native';
 
 class Greeting extends Component {
@@ -43,14 +45,66 @@ class Blink extends Component {
 
 
 class AwesomeProject extends Component {
+
+  constructor(props) {
+  super(props);
+  this.state = {text: ''};
+  }
+
   render() {
     let pic = {
-  uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-};
+        uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    };
 
     return (
       <View style={styles.container}>
-      <Image source={pic} style={{width: 386, height: 220}}/>
+
+        <ScrollView>
+          <Text style={{fontSize:96}}>Scroll me plz</Text>
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Text style={{fontSize:96}}>If you like</Text>
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Text style={{fontSize:96}}>Scrolling down</Text>
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Text style={{fontSize:96}}>Whats the best</Text>
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Text style={{fontSize:96}}>Framework around?</Text>
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Image source={require('image!favicon')} />
+          <Text style={{fontSize:80}}>React Native</Text>
+        </ScrollView>
+
+        <View style={{padding: 10, width: 386}}>
+             <TextInput
+               style={{height: 40}}
+               placeholder="Type here to translate!"
+               onChangeText={(text) => this.setState({text})}
+             />
+             <Text style={{padding: 10, fontSize: 42}}>
+               {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+             </Text>
+        </View>
+
+        <Image source={pic} style={{width: 386, height: 220}}/>
         <Text style={styles.welcome}>
           Welcome to Recichic!
         </Text>
@@ -79,7 +133,6 @@ class AwesomeProject extends Component {
           flex: 1,
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center',
         }}>
           <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
           <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
@@ -98,6 +151,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    padding: 10,
   },
   welcome: {
     fontSize: 20,
