@@ -11,6 +11,7 @@ import {
   Text,
   View,
   TextInput,
+  ListView,
   Image,
   ScrollView,
 } from 'react-native';
@@ -47,8 +48,12 @@ class Blink extends Component {
 class AwesomeProject extends Component {
 
   constructor(props) {
-  super(props);
-  this.state = {text: ''};
+    super(props);
+{/*}    this.state = {text: ''}; {*/}
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(['John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'])
+    };
   }
 
   render() {
@@ -57,9 +62,14 @@ class AwesomeProject extends Component {
     };
 
     return (
-      <View style={styles.container}>
+     <View style={styles.container}>
 
-        <ScrollView>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+        />
+
+{/*}        <ScrollView>
           <Text style={{fontSize:96}}>Scroll me plz</Text>
           <Image source={require('image!favicon')} />
           <Image source={require('image!favicon')} />
@@ -138,7 +148,7 @@ class AwesomeProject extends Component {
           <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
           <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
         </View>
-
+{*/}
       </View>
 
     );
